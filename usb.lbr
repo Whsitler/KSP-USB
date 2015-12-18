@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.2.0">
+<eagle version="7.5.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -38,7 +38,7 @@
 <layer number="42" name="bRestrict" color="1" fill="10" visible="yes" active="yes"/>
 <layer number="43" name="vRestrict" color="2" fill="10" visible="yes" active="yes"/>
 <layer number="44" name="Drills" color="7" fill="1" visible="no" active="yes"/>
-<layer number="45" name="Holes" color="7" fill="1" visible="no" active="yes"/>
+<layer number="45" name="Holes" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="46" name="Milling" color="3" fill="1" visible="no" active="yes"/>
 <layer number="47" name="Measures" color="7" fill="1" visible="no" active="yes"/>
 <layer number="48" name="Document" color="7" fill="1" visible="yes" active="yes"/>
@@ -133,6 +133,20 @@
 <wire x1="2.54" y1="1.524" x2="2.54" y2="-1.524" width="0.127" layer="51"/>
 <wire x1="2.54" y1="-1.524" x2="-2.54" y2="-1.524" width="0.127" layer="51"/>
 <wire x1="-2.54" y1="-1.524" x2="-2.54" y2="1.524" width="0.127" layer="51"/>
+</package>
+<package name="USB-MINI">
+<smd name="VBUS" x="-1.6" y="2.675" dx="0.5" dy="2.25" layer="1"/>
+<smd name="P$9" x="-4.45" y="2.55" dx="2" dy="2.5" layer="1"/>
+<smd name="P$6" x="-4.45" y="-2.87" dx="2" dy="2.5" layer="1"/>
+<smd name="P$7" x="4.45" y="2.55" dx="2" dy="2.5" layer="1"/>
+<smd name="P$8" x="4.45" y="-2.87" dx="2" dy="2.5" layer="1"/>
+<hole x="2.2" y="0" drill="0.9"/>
+<hole x="-2.2" y="0" drill="0.9"/>
+<smd name="D-" x="-0.8" y="2.675" dx="0.5" dy="2.25" layer="1"/>
+<smd name="D+" x="0" y="2.675" dx="0.5" dy="2.25" layer="1"/>
+<smd name="DEVICE" x="0.8" y="2.675" dx="0.5" dy="2.25" layer="1"/>
+<smd name="GND" x="1.6" y="2.675" dx="0.5" dy="2.25" layer="1"/>
+<wire x1="-2.9" y1="-5.85" x2="2.9" y2="-5.85" width="0.127" layer="20"/>
 </package>
 </packages>
 <symbols>
@@ -253,6 +267,25 @@
 <pin name="3" x="12.7" y="-2.54" length="middle" rot="R180"/>
 <pin name="4" x="12.7" y="-7.62" length="middle" rot="R180"/>
 </symbol>
+<symbol name="USB-MINI">
+<wire x1="7.62" y1="7.62" x2="-7.62" y2="7.62" width="0.254" layer="94"/>
+<wire x1="-7.62" y1="7.62" x2="-7.62" y2="-12.7" width="0.254" layer="94"/>
+<wire x1="-7.62" y1="-12.7" x2="7.62" y2="-12.7" width="0.254" layer="94"/>
+<wire x1="7.62" y1="-12.7" x2="7.62" y2="7.62" width="0.254" layer="94"/>
+<wire x1="-5.08" y1="-7.62" x2="-2.54" y2="-7.62" width="0.254" layer="94"/>
+<wire x1="-2.54" y1="-7.62" x2="-2.54" y2="-10.16" width="0.254" layer="94"/>
+<wire x1="-2.54" y1="-10.16" x2="-5.08" y2="-10.16" width="0.254" layer="94"/>
+<wire x1="-5.08" y1="-10.16" x2="-5.08" y2="-7.62" width="0.254" layer="94"/>
+<wire x1="2.54" y1="-10.16" x2="2.54" y2="-7.62" width="0.254" layer="94"/>
+<wire x1="2.54" y1="-7.62" x2="5.08" y2="-7.62" width="0.254" layer="94"/>
+<wire x1="5.08" y1="-7.62" x2="5.08" y2="-10.16" width="0.254" layer="94"/>
+<wire x1="5.08" y1="-10.16" x2="2.54" y2="-10.16" width="0.254" layer="94"/>
+<pin name="+5V" x="-5.08" y="12.7" length="middle" rot="R270"/>
+<pin name="D-" x="-2.54" y="12.7" length="middle" rot="R270"/>
+<pin name="D+" x="0" y="12.7" length="middle" rot="R270"/>
+<pin name="NC" x="2.54" y="12.7" length="middle" rot="R270"/>
+<pin name="GND" x="5.08" y="12.7" length="middle" rot="R270"/>
+</symbol>
 </symbols>
 <devicesets>
 <deviceset name="PUSB2X4Y">
@@ -319,6 +352,25 @@
 <connect gate="G$1" pin="4" pad="6"/>
 <connect gate="G$1" pin="GND" pad="2"/>
 <connect gate="G$1" pin="VCC" pad="5"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="USB-MINI">
+<gates>
+<gate name="G$1" symbol="USB-MINI" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="USB-MINI">
+<connects>
+<connect gate="G$1" pin="+5V" pad="VBUS"/>
+<connect gate="G$1" pin="D+" pad="D+"/>
+<connect gate="G$1" pin="D-" pad="D-"/>
+<connect gate="G$1" pin="GND" pad="GND"/>
+<connect gate="G$1" pin="NC" pad="DEVICE"/>
 </connects>
 <technologies>
 <technology name=""/>

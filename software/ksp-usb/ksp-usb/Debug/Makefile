@@ -29,6 +29,7 @@ QUOTE := "
 ADDITIONAL_DEPENDENCIES:=
 OUTPUT_FILE_DEP:=
 LIB_DEP:=
+LINKER_SCRIPT_DEP:=
 
 # Every subdirectory with source files must be described here
 SUBDIRS :=  \
@@ -239,6 +240,9 @@ OUTPUT_FILE_DEP:= ./makedep.mk
 
 LIB_DEP+= 
 
+LINKER_SCRIPT_DEP+= 
+
+
 # AVR32/GNU C Compiler
 
 
@@ -307,50 +311,50 @@ LIB_DEP+=
 
 src/LUFA/LUFA/Drivers/USB/Class/Common/%.o: ../src/LUFA/LUFA/Drivers/USB/Class/Common/%.c
 	@echo Building file: $<
-	@echo Invoking: AVR/GNU C Compiler : 3.4.4
-	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Toolchain\AVR8 GCC\Native\3.4.1056\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -DBOARD=USER_BOARD -DUSE_LUFA_CONFIG_HEADER -DBOARD=BOARD_USER -DARCH=ARCH_XMEGA -DF_CPU=32000000 -DF_USB=48000000  -I"../src" -I"../src/ASF/common/boards/user_board" -I"../src/config" -I"../src/LUFA/."  -O1 -fdata-sections -ffunction-sections -fdata-sections -g3 -Wall -mmcu=atxmega16a4u -c -std=gnu99 -fno-strict-aliasing -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -mrelax -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<"
+	@echo Invoking: AVR/GNU C Compiler : 4.9.2
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -DBOARD=USER_BOARD -DUSE_LUFA_CONFIG_HEADER -DBOARD=BOARD_USER -DARCH=ARCH_XMEGA -DF_CPU=32000000 -DF_USB=48000000  -I"../src" -I"../src/ASF/common/boards/user_board" -I"../src/config" -I"../src/LUFA/." -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\XMEGAA_DFP\1.0.36\include"  -O1 -fdata-sections -ffunction-sections -fdata-sections -g3 -Wall -mmcu=atxmega16a4u -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\XMEGAA_DFP\1.0.36\gcc\dev\atxmega16a4u" -c -std=gnu99 -fno-strict-aliasing -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -mrelax -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
 src/LUFA/LUFA/Drivers/USB/Class/Device/%.o: ../src/LUFA/LUFA/Drivers/USB/Class/Device/%.c
 	@echo Building file: $<
-	@echo Invoking: AVR/GNU C Compiler : 3.4.4
-	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Toolchain\AVR8 GCC\Native\3.4.1056\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -DBOARD=USER_BOARD -DUSE_LUFA_CONFIG_HEADER -DBOARD=BOARD_USER -DARCH=ARCH_XMEGA -DF_CPU=32000000 -DF_USB=48000000  -I"../src" -I"../src/ASF/common/boards/user_board" -I"../src/config" -I"../src/LUFA/."  -O1 -fdata-sections -ffunction-sections -fdata-sections -g3 -Wall -mmcu=atxmega16a4u -c -std=gnu99 -fno-strict-aliasing -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -mrelax -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<"
+	@echo Invoking: AVR/GNU C Compiler : 4.9.2
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -DBOARD=USER_BOARD -DUSE_LUFA_CONFIG_HEADER -DBOARD=BOARD_USER -DARCH=ARCH_XMEGA -DF_CPU=32000000 -DF_USB=48000000  -I"../src" -I"../src/ASF/common/boards/user_board" -I"../src/config" -I"../src/LUFA/." -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\XMEGAA_DFP\1.0.36\include"  -O1 -fdata-sections -ffunction-sections -fdata-sections -g3 -Wall -mmcu=atxmega16a4u -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\XMEGAA_DFP\1.0.36\gcc\dev\atxmega16a4u" -c -std=gnu99 -fno-strict-aliasing -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -mrelax -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
 src/LUFA/LUFA/Drivers/USB/Class/Host/%.o: ../src/LUFA/LUFA/Drivers/USB/Class/Host/%.c
 	@echo Building file: $<
-	@echo Invoking: AVR/GNU C Compiler : 3.4.4
-	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Toolchain\AVR8 GCC\Native\3.4.1056\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -DBOARD=USER_BOARD -DUSE_LUFA_CONFIG_HEADER -DBOARD=BOARD_USER -DARCH=ARCH_XMEGA -DF_CPU=32000000 -DF_USB=48000000  -I"../src" -I"../src/ASF/common/boards/user_board" -I"../src/config" -I"../src/LUFA/."  -O1 -fdata-sections -ffunction-sections -fdata-sections -g3 -Wall -mmcu=atxmega16a4u -c -std=gnu99 -fno-strict-aliasing -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -mrelax -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<"
+	@echo Invoking: AVR/GNU C Compiler : 4.9.2
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -DBOARD=USER_BOARD -DUSE_LUFA_CONFIG_HEADER -DBOARD=BOARD_USER -DARCH=ARCH_XMEGA -DF_CPU=32000000 -DF_USB=48000000  -I"../src" -I"../src/ASF/common/boards/user_board" -I"../src/config" -I"../src/LUFA/." -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\XMEGAA_DFP\1.0.36\include"  -O1 -fdata-sections -ffunction-sections -fdata-sections -g3 -Wall -mmcu=atxmega16a4u -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\XMEGAA_DFP\1.0.36\gcc\dev\atxmega16a4u" -c -std=gnu99 -fno-strict-aliasing -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -mrelax -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
 src/LUFA/LUFA/Drivers/USB/Core/%.o: ../src/LUFA/LUFA/Drivers/USB/Core/%.c
 	@echo Building file: $<
-	@echo Invoking: AVR/GNU C Compiler : 3.4.4
-	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Toolchain\AVR8 GCC\Native\3.4.1056\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -DBOARD=USER_BOARD -DUSE_LUFA_CONFIG_HEADER -DBOARD=BOARD_USER -DARCH=ARCH_XMEGA -DF_CPU=32000000 -DF_USB=48000000  -I"../src" -I"../src/ASF/common/boards/user_board" -I"../src/config" -I"../src/LUFA/."  -O1 -fdata-sections -ffunction-sections -fdata-sections -g3 -Wall -mmcu=atxmega16a4u -c -std=gnu99 -fno-strict-aliasing -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -mrelax -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<"
+	@echo Invoking: AVR/GNU C Compiler : 4.9.2
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -DBOARD=USER_BOARD -DUSE_LUFA_CONFIG_HEADER -DBOARD=BOARD_USER -DARCH=ARCH_XMEGA -DF_CPU=32000000 -DF_USB=48000000  -I"../src" -I"../src/ASF/common/boards/user_board" -I"../src/config" -I"../src/LUFA/." -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\XMEGAA_DFP\1.0.36\include"  -O1 -fdata-sections -ffunction-sections -fdata-sections -g3 -Wall -mmcu=atxmega16a4u -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\XMEGAA_DFP\1.0.36\gcc\dev\atxmega16a4u" -c -std=gnu99 -fno-strict-aliasing -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -mrelax -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
 src/LUFA/LUFA/Drivers/USB/Core/XMEGA/%.o: ../src/LUFA/LUFA/Drivers/USB/Core/XMEGA/%.c
 	@echo Building file: $<
-	@echo Invoking: AVR/GNU C Compiler : 3.4.4
-	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Toolchain\AVR8 GCC\Native\3.4.1056\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -DBOARD=USER_BOARD -DUSE_LUFA_CONFIG_HEADER -DBOARD=BOARD_USER -DARCH=ARCH_XMEGA -DF_CPU=32000000 -DF_USB=48000000  -I"../src" -I"../src/ASF/common/boards/user_board" -I"../src/config" -I"../src/LUFA/."  -O1 -fdata-sections -ffunction-sections -fdata-sections -g3 -Wall -mmcu=atxmega16a4u -c -std=gnu99 -fno-strict-aliasing -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -mrelax -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<"
+	@echo Invoking: AVR/GNU C Compiler : 4.9.2
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -DBOARD=USER_BOARD -DUSE_LUFA_CONFIG_HEADER -DBOARD=BOARD_USER -DARCH=ARCH_XMEGA -DF_CPU=32000000 -DF_USB=48000000  -I"../src" -I"../src/ASF/common/boards/user_board" -I"../src/config" -I"../src/LUFA/." -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\XMEGAA_DFP\1.0.36\include"  -O1 -fdata-sections -ffunction-sections -fdata-sections -g3 -Wall -mmcu=atxmega16a4u -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\XMEGAA_DFP\1.0.36\gcc\dev\atxmega16a4u" -c -std=gnu99 -fno-strict-aliasing -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -mrelax -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
 src/LUFA/LUFA/Drivers/USB/Core/XMEGA/Template/%.o: ../src/LUFA/LUFA/Drivers/USB/Core/XMEGA/Template/%.c
 	@echo Building file: $<
-	@echo Invoking: AVR/GNU C Compiler : 3.4.4
-	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Toolchain\AVR8 GCC\Native\3.4.1056\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -DBOARD=USER_BOARD -DUSE_LUFA_CONFIG_HEADER -DBOARD=BOARD_USER -DARCH=ARCH_XMEGA -DF_CPU=32000000 -DF_USB=48000000  -I"../src" -I"../src/ASF/common/boards/user_board" -I"../src/config" -I"../src/LUFA/."  -O1 -fdata-sections -ffunction-sections -fdata-sections -g3 -Wall -mmcu=atxmega16a4u -c -std=gnu99 -fno-strict-aliasing -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -mrelax -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<"
+	@echo Invoking: AVR/GNU C Compiler : 4.9.2
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -DBOARD=USER_BOARD -DUSE_LUFA_CONFIG_HEADER -DBOARD=BOARD_USER -DARCH=ARCH_XMEGA -DF_CPU=32000000 -DF_USB=48000000  -I"../src" -I"../src/ASF/common/boards/user_board" -I"../src/config" -I"../src/LUFA/." -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\XMEGAA_DFP\1.0.36\include"  -O1 -fdata-sections -ffunction-sections -fdata-sections -g3 -Wall -mmcu=atxmega16a4u -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\XMEGAA_DFP\1.0.36\gcc\dev\atxmega16a4u" -c -std=gnu99 -fno-strict-aliasing -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -mrelax -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
 src/%.o: ../src/%.c
 	@echo Building file: $<
-	@echo Invoking: AVR/GNU C Compiler : 3.4.4
-	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Toolchain\AVR8 GCC\Native\3.4.1056\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -DBOARD=USER_BOARD -DUSE_LUFA_CONFIG_HEADER -DBOARD=BOARD_USER -DARCH=ARCH_XMEGA -DF_CPU=32000000 -DF_USB=48000000  -I"../src" -I"../src/ASF/common/boards/user_board" -I"../src/config" -I"../src/LUFA/."  -O1 -fdata-sections -ffunction-sections -fdata-sections -g3 -Wall -mmcu=atxmega16a4u -c -std=gnu99 -fno-strict-aliasing -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -mrelax -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<"
+	@echo Invoking: AVR/GNU C Compiler : 4.9.2
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -DBOARD=USER_BOARD -DUSE_LUFA_CONFIG_HEADER -DBOARD=BOARD_USER -DARCH=ARCH_XMEGA -DF_CPU=32000000 -DF_USB=48000000  -I"../src" -I"../src/ASF/common/boards/user_board" -I"../src/config" -I"../src/LUFA/." -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\XMEGAA_DFP\1.0.36\include"  -O1 -fdata-sections -ffunction-sections -fdata-sections -g3 -Wall -mmcu=atxmega16a4u -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\XMEGAA_DFP\1.0.36\gcc\dev\atxmega16a4u" -c -std=gnu99 -fno-strict-aliasing -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -mrelax -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
@@ -376,16 +380,16 @@ endif
 # All Target
 all: $(OUTPUT_FILE_PATH) $(ADDITIONAL_DEPENDENCIES)
 
-$(OUTPUT_FILE_PATH): $(OBJS) $(USER_OBJS) $(OUTPUT_FILE_DEP) $(LIB_DEP)
+$(OUTPUT_FILE_PATH): $(OBJS) $(USER_OBJS) $(OUTPUT_FILE_DEP) $(LIB_DEP) $(LINKER_SCRIPT_DEP)
 	@echo Building target: $@
-	@echo Invoking: AVR/GNU Linker : 3.4.4
-	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Toolchain\AVR8 GCC\Native\3.4.1056\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE) -o$(OUTPUT_FILE_PATH_AS_ARGS) $(OBJS_AS_ARGS) $(USER_OBJS) $(LIBS) -Wl,-Map="ksp-usb.map" -Wl,--start-group  -Wl,--end-group -Wl,--gc-sections -mmcu=atxmega16a4u -Wl,--relax 
+	@echo Invoking: AVR/GNU Linker : 4.9.2
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE) -o$(OUTPUT_FILE_PATH_AS_ARGS) $(OBJS_AS_ARGS) $(USER_OBJS) $(LIBS) -Wl,-Map="ksp-usb.map" -Wl,--start-group  -Wl,--end-group -Wl,--gc-sections -mmcu=atxmega16a4u -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\XMEGAA_DFP\1.0.36\gcc\dev\atxmega16a4u" -Wl,--relax  
 	@echo Finished building target: $@
-	"C:\Program Files (x86)\Atmel\Atmel Toolchain\AVR8 GCC\Native\3.4.1056\avr8-gnu-toolchain\bin\avr-objcopy.exe" -O ihex -R .eeprom -R .fuse -R .lock -R .signature  "ksp-usb.elf" "ksp-usb.hex"
-	"C:\Program Files (x86)\Atmel\Atmel Toolchain\AVR8 GCC\Native\3.4.1056\avr8-gnu-toolchain\bin\avr-objcopy.exe" -j .eeprom  --set-section-flags=.eeprom=alloc,load --change-section-lma .eeprom=0  --no-change-warnings -O ihex "ksp-usb.elf" "ksp-usb.eep" || exit 0
-	"C:\Program Files (x86)\Atmel\Atmel Toolchain\AVR8 GCC\Native\3.4.1056\avr8-gnu-toolchain\bin\avr-objdump.exe" -h -S "ksp-usb.elf" > "ksp-usb.lss"
-	"C:\Program Files (x86)\Atmel\Atmel Toolchain\AVR8 GCC\Native\3.4.1056\avr8-gnu-toolchain\bin\avr-objcopy.exe" -O srec -R .eeprom -R .fuse -R .lock -R .signature  "ksp-usb.elf" "ksp-usb.srec"
-	"C:\Program Files (x86)\Atmel\Atmel Toolchain\AVR8 GCC\Native\3.4.1056\avr8-gnu-toolchain\bin\avr-size.exe" "ksp-usb.elf"
+	"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-objcopy.exe" -O ihex -R .eeprom -R .fuse -R .lock -R .signature -R .user_signatures  "ksp-usb.elf" "ksp-usb.hex"
+	"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-objcopy.exe" -j .eeprom  --set-section-flags=.eeprom=alloc,load --change-section-lma .eeprom=0  --no-change-warnings -O ihex "ksp-usb.elf" "ksp-usb.eep" || exit 0
+	"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-objdump.exe" -h -S "ksp-usb.elf" > "ksp-usb.lss"
+	"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-objcopy.exe" -O srec -R .eeprom -R .fuse -R .lock -R .signature -R .user_signatures "ksp-usb.elf" "ksp-usb.srec"
+	"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-size.exe" "ksp-usb.elf"
 	
 	
 
@@ -397,5 +401,5 @@ $(OUTPUT_FILE_PATH): $(OBJS) $(USER_OBJS) $(OUTPUT_FILE_DEP) $(LIB_DEP)
 clean:
 	-$(RM) $(OBJS_AS_ARGS) $(EXECUTABLES)  
 	-$(RM) $(C_DEPS_AS_ARGS)   
-	rm -rf "ksp-usb.elf" "ksp-usb.a" "ksp-usb.hex" "ksp-usb.lss" "ksp-usb.eep" "ksp-usb.map" "ksp-usb.srec"
+	rm -rf "ksp-usb.elf" "ksp-usb.a" "ksp-usb.hex" "ksp-usb.lss" "ksp-usb.eep" "ksp-usb.map" "ksp-usb.srec" "ksp-usb.usersignatures"
 	
